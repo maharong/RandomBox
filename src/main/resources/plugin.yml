@@ -2,8 +2,20 @@ name: RandomBox
 version: '1.0.0'
 main: com.github.maharong.randombox.RandomBox
 api-version: '1.20'
-prefix: [ EconomyCore ]
+prefix: RandomBox
 load: STARTUP
 authors: [ maharong ]
-description: 경제 시스템을 총괄하는 코어 플러그인
-website: https://github.com/maharong/economycore
+description: 랜덤 박스 플러그인
+website: https://github.com/maharong/RandomBox
+softdepend:
+  - Vault
+
+commands:
+  randombox:
+    description: 랜덤박스 명령어
+    permission: randombox.admin
+
+permissions:
+  randombox.admin:
+    description: 랜덤박스 명령어 사용가능 권한.
+    default: op

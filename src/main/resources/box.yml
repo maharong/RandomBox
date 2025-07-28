@@ -1,0 +1,53 @@
+boxes:
+  example_box:  # 박스 ID (명령어 등에서 사용)
+    lootbox:  # 박스를 열기 위한 아이템 설정
+      material: PAPER  # 박스 아이템 종류 (ex: PAPER, NAME_TAG 등)
+      name: "<green>예시 랜덤 박스"  # 박스 아이템 이름
+      shiny: true  # 반짝임 효과 부여 (기본 false)
+      lore:  # 박스 로어 (한 줄씩 입력)
+        - "<yellow>예시 랜덤 박스에서 다양한 보상이 나옵니다!"
+    rewards:  # 확률 기반 보상 목록
+      - chance: 10.0  # 확률(%) - 그룹 단위
+        rewards:
+          - type: ITEM  # 기본 아이템
+            item: DIAMOND_SWORD
+            amount: 1
+      - chance: 15.0
+        rewards:
+          - type: MONEY  # Vault 기반 돈
+            amount: 5000
+      - chance: 20.0
+        rewards:
+          - type: EXP
+            amount: 300
+      - chance: 10.0
+        rewards:
+          - type: COMMAND
+            command: "give {player} minecraft:netherite_ingot"
+      - chance: 15.0
+        rewards:
+          - type: BROADCAST
+            text: "<gold>{player}</gold>님이 <red>전설의 검</red>을 획득했습니다!"
+          - type: MESSAGE
+            text: "야호!"
+      - chance: 10.0
+        rewards:
+          - type: MESSAGE
+            text: "<green>축하합니다! 5000골드를 획득하셨습니다."
+      - chance: 10.0
+        rewards:
+          - type: ITEM  # 커스텀 아이템
+            item: DIAMOND_SWORD
+            name: "<gold>황금의 전설검"
+            lore:
+              - "<yellow>이 검은 빛나고 있다..."
+              - "<gray>희귀한 아이템입니다."
+            shiny: true
+            amount: 1
+            enchant:
+              unbreaking: 3
+              sharpness: 5
+    default:  # 확률 합이 100% 미만이고 이 항목이 없으면 플러그인 비활성화
+      rewards:
+        - type: MESSAGE
+          text: "<gray>꽝입니다! 다음 기회를 노려보세요."
